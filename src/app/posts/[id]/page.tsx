@@ -253,7 +253,7 @@ const Post = ({ params }: { params: { id: string } }) => {
 
         <div className="mt-6 text-lg text-gray-600">{renderParagraphs(post.description)}</div>
 
-        <CommentSection PostId={post.id} />
+        <CommentSection />
         <AuthoreCard />
       </div>
     </>
