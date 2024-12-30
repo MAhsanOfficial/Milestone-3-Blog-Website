@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { FaFacebook, FaGithub, FaInstagramSquare } from 'react-icons/fa'
+import { FaFacebook, FaGithub,} from 'react-icons/fa'
 import { SiInstagram } from 'react-icons/si'
 
 const AuthoreCard = () => {

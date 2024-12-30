@@ -18,7 +18,7 @@ const Mega = () => {
 {
   id:'2',
   title:'Block-Chain TechnoLogy',
-  description:'',
+  description:'Blockchain is a decentralized, secure digital ledger that ensures transparent and tamper-proof transactions.',
   date:'2024-28-12',
   imageUrl: '/images/blog-2.png'
 },

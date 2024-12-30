@@ -10,8 +10,8 @@ const BlogCard = ({post,isDarkBackground}:BlogCardProps) =>{
   return (    
      <Card id='blog' className= {`p-4 ${isDarkBackground ? 'bg-red-500 text-white' : 'text-yellow-600'}rounded-lg  shadow-lg hover:shadow-xl transition-shadow duration-300`}>
 
+<Image src={post.imageUrl} height={400} width={400} alt={post.title} className='w-full h-48 object-cover rounded-t-lg'/>
 
-  <img src={post.imageUrl} alt={post.title} className='w-full h-48 object-cover rounded-t-lg' />
 
 <CardTitle className='mt-4 text-xl font-normal text-center'>{post.title}</CardTitle>
 <br />
