@@ -128,9 +128,7 @@
 
 
 
-
 import React from 'react';
-import CommentSection from '@/components/CommentSection';
 import AuthoreCard from '@/components/AuthoreCard';
 import Image from 'next/image';
 
@@ -253,7 +251,7 @@ const Post = ({ params }: { params: { id: string } }) => {
 
         <div className="mt-6 text-lg text-gray-600">{renderParagraphs(post.description)}</div>
 
-        <CommentSection />
+        {/* <CommentSection /> */}
         <AuthoreCard />
       </div>
     </>
