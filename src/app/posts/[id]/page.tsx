@@ -454,7 +454,6 @@
 
 
 
-
 import React from 'react';
 import AuthoreCard from '@/components/AuthoreCard';
 import Image from 'next/image';
@@ -533,11 +532,10 @@ const posts = [
     description:"Quantum computing is an emerging technology that uses the principles of quantum mechanics to perform complex calculations. Unlike classical computers, which use bits, quantum computers use qubits, allowing them to process information in multiple states simultaneously. This makes them incredibly powerful for solving problems that traditional computers cannot.Quantum computing has the potential to revolutionize fields like cryptography, drug discovery, and artificial intelligence. It can perform calculations at speeds far beyond current technology. Although still in its early stages, its future impact could lead to breakthroughs in science, technology, and medicine. The rise of quantum computing promises a new frontier of innovation and problem-solving.",
     imageUrl: '/images/blog-12.png'
   },
-
 ];
 
 async function fetchPost(id: string) {
-  // Aap yahan actual database ya API se data fetch kar sakte hain.
+  // Simulate fetching data from a database or API
   return posts.find((post) => post.id === id);
 }
 
@@ -552,7 +550,7 @@ export default async function Post({ params }: Props) {
   if (!post) {
     return (
       <h2 className="text-3xl font-bold text-yellow-500 flex justify-center items-center underline">
-        Post Not Found BY BY .....!
+        Post Not Found. Please check the URL!
       </h2>
     );
   }
