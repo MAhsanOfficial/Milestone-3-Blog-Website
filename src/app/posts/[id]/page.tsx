@@ -538,16 +538,16 @@ const posts = [
 ];
 
 async function fetchPost(id: string) {
-  // Simulate fetching data from a database or API
+
   return posts.find((post) => post.id === id);
 }
 
 type Props = {
-  params: { id: string };
+  params: Promise<{id: string}>;
 };
 
 export default async function Post({ params }: Props) {
-  const { id } = params;
+  const { id } =await params;
   const post = await fetchPost(id);
 
   if (!post) {
