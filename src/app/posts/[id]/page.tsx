@@ -264,6 +264,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { GetServerSideProps } from 'next'; // Ensure correct Next.js imports for dynamic props
 import React from 'react';
 import AuthoreCard from '@/components/AuthoreCard';
 import Image from 'next/image';
@@ -271,8 +288,7 @@ import CommentSection from '@/components/CommentSection';
 
 const posts = [
   
-   
-  {
+      {
     id:'1',
     title:"Agentic AI: The Future of Autonomous Technology",
     description:"Agentic AI refers to artificial intelligence systems that can act as independent agents, making decisions and taking actions without constant human input. Unlike traditional AI, which mainly provides insights, agentic AI is designed to solve problems and achieve specific goals autonomously. For instance, self-driving cars use agentic AI to navigate traffic, while in healthcare, it can monitor patients and respond to emergencies. This advanced AI offers efficiency and the ability to handle complex tasks, but also raises concerns regarding ethics, security, and accountability. As technology progresses, agentic AI has the potential to revolutionize industries, providing smarter and more efficient solutions.",
@@ -344,19 +360,20 @@ const posts = [
     description:"Quantum computing is an emerging technology that uses the principles of quantum mechanics to perform complex calculations. Unlike classical computers, which use bits, quantum computers use qubits, allowing them to process information in multiple states simultaneously. This makes them incredibly powerful for solving problems that traditional computers cannot.Quantum computing has the potential to revolutionize fields like cryptography, drug discovery, and artificial intelligence. It can perform calculations at speeds far beyond current technology. Although still in its early stages, its future impact could lead to breakthroughs in science, technology, and medicine. The rise of quantum computing promises a new frontier of innovation and problem-solving.",
     imageUrl: '/images/blog-12.png'
   },
-  
-   
+
 
 
 ];
 
 type PostParams = {
-  params: {
-    id: string;
-  };
+  id: string;
 };
 
-const Post = ({ params }: PostParams) => {
+type PostPageProps = {
+  params: PostParams;
+};
+
+const Post = ({ params }: PostPageProps) => {
   const { id } = params;
   const post = posts.find((p) => p.id === id);
   if (!post) {
@@ -368,7 +385,7 @@ const Post = ({ params }: PostParams) => {
   }
 
   const renderParagraphs = (description: string) => {
-    return description.split('/n').map((para, index) => (
+    return description.split('\n').map((para, index) => (
       <p className="mt-4 justify" key={index}>
         {para.trim()}
       </p>
@@ -398,6 +415,22 @@ const Post = ({ params }: PostParams) => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id } = context.params as PostParams;
+
+  if (!id) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      params: { id },
+    },
+  };
 };
 
 export default Post;
